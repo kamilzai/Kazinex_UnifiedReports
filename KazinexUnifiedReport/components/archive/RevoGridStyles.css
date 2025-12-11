@@ -1,0 +1,93 @@
+/**
+ * RevoGrid Custom Styles
+ * 
+ * Day 5: Visual indicators for edited cells
+ */
+
+/* Edited cell styling */
+.revo-grid .cell-edited {
+  position: relative;
+  background-color: #fff4e6 !important; /* Light orange background */
+  border: 1px solid #ff9500 !important; /* Orange border */
+}
+
+.revo-grid .cell-edited::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 8px 8px 0;
+  border-color: transparent #ff9500 transparent transparent; /* Orange corner triangle */
+}
+
+/* Hover effect for edited cells */
+.revo-grid .cell-edited:hover {
+  background-color: #ffe8cc !important; /* Slightly darker on hover */
+}
+
+/* Validation error styling */
+.revo-grid .cell-error {
+  position: relative;
+  background-color: #fef0f0 !important; /* Light red background */
+  border: 1px solid #dc3545 !important; /* Red border */
+}
+
+.revo-grid .cell-error::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 8px 8px 0;
+  border-color: transparent #dc3545 transparent transparent; /* Red corner triangle */
+}
+
+/* Focus state for edited cells */
+.revo-grid .cell-edited.focused,
+.revo-grid .cell-edited:focus {
+  border: 2px solid #ff9500 !important;
+  outline: none !important;
+}
+
+/* Tooltip for edited cells showing original value */
+/* Note: Tooltip needs to be implemented via inline styles or JS since shadow DOM blocks CSS */
+.cell-with-tooltip[data-tooltip] {
+  position: relative;
+}
+
+/* Tooltip positioning container */
+.revogrid-tooltip {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10000;
+  pointer-events: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.2s ease-in-out;
+}
+
+.revogrid-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+
+.revogrid-tooltip-value {
+  color: #ffd700;
+  font-weight: 600;
+}

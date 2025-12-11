@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+        <control namespace="KazinexControls" constructor="UnifiedReport" version="1.9.8" display-name-key="UnifiedReport" description-key="UnifiedReport description" control-type="standard">
+    <external-service-usage enabled="false">
+    </external-service-usage>
+    
+    <!-- Dataset property for grid binding -->
+    <data-set name="reportDataSet" display-name-key="Report_DataSet_Display_Key" description-key="Report_DataSet_Desc_Key">
+    </data-set>
+    
+    <!-- Input properties for configuration -->
+    <property name="reportSliceId" display-name-key="ReportSlice_Display_Key" description-key="ReportSlice_Desc_Key" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="publisherPrefix" display-name-key="Publisher_Prefix_Display_Key" description-key="Publisher_Prefix_Desc_Key" of-type="SingleLine.Text" usage="input" required="true" default-value="" />
+    <property name="subGridHeight" display-name-key="SubGrid_Height_Display_Key" description-key="SubGrid_Height_Desc_Key" of-type="Whole.None" usage="input" required="false" />
+    <property name="viewportHeight" display-name-key="Viewport_Height_Display_Key" description-key="Viewport_Height_Desc_Key" of-type="Whole.None" usage="input" required="false" default-value="800" />
+    <property name="containerHeight" display-name-key="Container_Height_Display_Key" description-key="Container_Height_Desc_Key" of-type="SingleLine.Text" usage="input" required="false" default-value="60vh" />
+    <property name="enableImageFunctionality" display-name-key="Enable_Image_Display_Key" description-key="Enable_Image_Desc_Key" of-type="TwoOptions" usage="input" required="false" default-value="true" />
+    <property name="enableBulkUpload" display-name-key="Enable_Bulk_Upload_Display_Key" description-key="Enable_Bulk_Upload_Desc_Key" of-type="TwoOptions" usage="input" required="false" default-value="true" />
+    <!--
+      Property node's of-type attribute can be of-type-group attribute.
+      Example:
+      <type-group name="numbers">
+        <type>Whole.None</type>
+        <type>Currency</type>
+        <type>FP</type>
+        <type>Decimal</type>
+      </type-group>
+      <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type-group="numbers" usage="bound" required="true" />
+    -->
+    <resources>
+      <code path="index.ts" order="1"/>
+    </resources>
+    
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+  </control>
+</manifest>
